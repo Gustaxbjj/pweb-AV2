@@ -1,0 +1,28 @@
+{
+  "name": "pweb-av2",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000p\u0000w\u0000e\u0000b\u0000-\u0000A\u0000V\u00002\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "npx nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gustaxbjj/pweb-AV2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gustaxbjj/pweb-AV2/issues"
+  },
+  "homepage": "https://github.com/Gustaxbjj/pweb-AV2#readme",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "pg": "^8.16.3",
+    "sequelize": "^6.37.7"
+  }
+}
