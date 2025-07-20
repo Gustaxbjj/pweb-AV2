@@ -33,7 +33,7 @@ app.use('/usuarios', usuarioRouter);
 
 sequelize.sync({ alter: true })
   .then(() => {
-    console.log('Tudo certo chefe');
+    console.log('Tudo certo chefe ✅');
     app.listen(port, () => {
       console.log(`Server ok port ${port}`);
     });
