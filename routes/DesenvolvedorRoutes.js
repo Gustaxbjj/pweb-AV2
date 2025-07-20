@@ -2,7 +2,6 @@ import express from 'express';
 import { Desenvolvedor } from '../models/Index.js';
 import { expect } from 'chai';
 
-
 const DesenvolvedorRouter = express.Router();
 
 //  Buscar todos os Desenvolvedores

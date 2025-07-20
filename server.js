@@ -4,11 +4,12 @@ import bodyParser from 'body-parser';
 import sequelize from './config/database.js';
 
 import usuarioRouter from './routes/UsuarioRouters.js';
-//import categoriaRouter from './routes/CategoriaRouters.js';
-//import plataformaRouter from './routes/PlataformaRouters.js';
-//import desenvolvedorRouter from './routes/DesenvolvedorRoutes.js';
-//import avaliacoesRouter from './routes/AvaliacoesRouters.js';
-//import pedidosRouter from './routes/PedidosRouters.js';
+import categoriaRouter from './routes/CategoriaRouters.js';
+import Jogosrouter from './routes/JogosRouters.js';
+import plataformaRouter from './routes/PlataformaRouters.js';
+import desenvolvedorRouter from './routes/DesenvolvedorRoutes.js';
+import avaliacoesRouter from './routes/AvaliacoesRouters.js';
+import pedidosRouter from './routes/PedidosRouters.js';
 //import pedidoItensRouter from './routes/Pedido_ItensRouters.js';
 //import jogosPlataformaRouter from './routes/Jogos_PlataformaRouters.js';
 
@@ -23,11 +24,12 @@ app.get('/version', (req, res) =>{
 });
 
 app.use('/usuarios', usuarioRouter);
-//app.use('/categorias', categoriaRouter);
-//app.use('/plataformas', plataformaRouter);
-//app.use('/desenvolvedores', desenvolvedorRouter);
-//app.use('/avalicoes', avaliacoesRouter);
-//app.use('/pedidos', pedidosRouter);
+app.use('/categorias', categoriaRouter);
+app.use('/plataformas', plataformaRouter);
+app.use('/jogos', Jogosrouter )
+app.use('/desenvolvedores', desenvolvedorRouter);
+app.use('/avalicoes', avaliacoesRouter);
+app.use('/pedidos', pedidosRouter);
 //app.use('/pedidoItens', pedidoItensRouter);
 //app.use('/jogosPlataformas', jogosPlataformaRouter);
 
