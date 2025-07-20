@@ -78,5 +78,15 @@ Jogo.hasMany(PedidoItem, { foreignKey: 'jogo_id' });
 PedidoItem.belongsTo(Jogo, { foreignKey: 'jogo_id' });
 
 
-export { sequelize, Usuario, Categoria,  Desenvolvedor,Jogo, Plataforma,Jogo_Plataforma,Avaliacao, Pedido,  PedidoItem};
-  
+export {
+  sequelize,
+  Usuario,
+  Categoria,
+  Desenvolvedor,
+  Jogo,
+  Plataforma,
+  Jogo_Plataforma,
+  Avaliacao,
+  Pedido,
+  PedidoItem
+};

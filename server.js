@@ -3,7 +3,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import sequelize from './config/database.js';
 
-//import usuarioRouter from './routes/UsuarioRouters.js';
+import usuarioRouter from './routes/UsuarioRouters.js';
 //import categoriaRouter from './routes/CategoriaRouters.js';
 //import plataformaRouter from './routes/PlataformaRouters.js';
 //import desenvolvedorRouter from './routes/DesenvolvedorRoutes.js';
@@ -22,14 +22,14 @@ app.get('/version', (req, res) =>{
  res.json({status: 'ok', version: '1.0.0'});
 });
 
-//app.use('/usuario', usuarioRouter);
-//app.use('/categoria', categoriaRouter);
-//app.use('/plataforma', plataformaRouter);
-//app.use('/desenvolvedor', desenvolvedorRouter);
+app.use('/usuarios', usuarioRouter);
+//app.use('/categorias', categoriaRouter);
+//app.use('/plataformas', plataformaRouter);
+//app.use('/desenvolvedores', desenvolvedorRouter);
 //app.use('/avalicoes', avaliacoesRouter);
-//app.use('/pedido', pedidosRouter);
+//app.use('/pedidos', pedidosRouter);
 //app.use('/pedidoItens', pedidoItensRouter);
-//app.use('/jogosPlataforma', jogosPlataformaRouter);
+//app.use('/jogosPlataformas', jogosPlataformaRouter);
 
 sequelize.sync({ alter: true })
   .then(() => {
