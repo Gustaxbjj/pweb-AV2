@@ -28,7 +28,7 @@ app.use('/categorias', categoriaRouter);
 app.use('/plataformas', plataformaRouter);
 app.use('/jogos', Jogosrouter )
 app.use('/desenvolvedores', desenvolvedorRouter);
-app.use('/avalicoes', avaliacoesRouter);
+app.use('/avaliacoes', avaliacoesRouter);
 app.use('/pedidos', pedidosRouter);
 //app.use('/pedidoItens', pedidoItensRouter);
 //app.use('/jogosPlataformas', jogosPlataformaRouter);
