@@ -20,7 +20,7 @@ import CategoriaModel from './Categoria.js';
 import DesenvolvedorModel from './Desenvolvedor.js';
 import JogoModel from './Jogos.js';
 import PlataformaModel from './Plataforma.js';
-import JogoPlataformaModel from './Jogos_Plataforma.js';
+import Jogo_PlataformaModel from './Jogos_Plataforma.js';
 import AvaliacaoModel from './Avaliacoes.js';
 import PedidoModel from './Pedidos.js';
 import PedidoItemModel from './Pedido_Itens.js';
@@ -31,7 +31,7 @@ const Categoria = CategoriaModel(sequelize);
 const Desenvolvedor = DesenvolvedorModel(sequelize);
 const Jogo = JogoModel(sequelize);
 const Plataforma = PlataformaModel(sequelize);
-const JogoPlataforma = JogoPlataformaModel(sequelize);
+const Jogo_Plataforma = Jogo_PlataformaModel(sequelize);
 const Avaliacao = AvaliacaoModel(sequelize);
 const Pedido = PedidoModel(sequelize);
 const PedidoItem = PedidoItemModel(sequelize);
@@ -47,13 +47,13 @@ Desenvolvedor.hasMany(Jogo, { foreignKey: 'desenvolvedor_id' });
 
 
 Jogo.belongsToMany(Plataforma, {
-  through: JogoPlataforma,
+  through: Jogo_Plataforma,
   foreignKey: 'jogo_id',
   otherKey: 'plataforma_id',
   timestamps: false
 });
 Plataforma.belongsToMany(Jogo, {
-  through: JogoPlataforma,
+  through: Jogo_Plataforma,
   foreignKey: 'plataforma_id',
   otherKey: 'jogo_id',
   timestamps: false
@@ -78,4 +78,5 @@ Jogo.hasMany(PedidoItem, { foreignKey: 'jogo_id' });
 PedidoItem.belongsTo(Jogo, { foreignKey: 'jogo_id' });
 
 
-export { sequelize, Usuario, Categoria,  Desenvolvedor,Jogo, Plataforma,JogoPlataforma,Avaliacao, Pedido,  PedidoItem};
+export { sequelize, Usuario, Categoria,  Desenvolvedor,Jogo, Plataforma,Jogo_Plataforma,Avaliacao, Pedido,  PedidoItem};
+  

@@ -1,25 +1,43 @@
-import { sequelize, Usuario, Jogo, Pedido, Desenvolvedor, Categoria, Avaliacao, JogoPlataforma, PedidoItem, Plataforma } from './models/Index.js';
+import {Usuario, Jogo, Pedido, Desenvolvedor, Categoria, Avaliacao, Jogo_Plataforma, PedidoItem, Plataforma } from './models/Index.js';
+import express from 'express';
+import bodyParser from 'body-parser';
+import sequelize from './config/database.js';
 
-(async () => {
-  try {
-    await sequelize.authenticate();
-    console.log('✅ Conexão com o banco de dados estabelecida com sucesso.');
+//import usuarioRouter from './routes/UsuarioRouters.js';
+//import categoriaRouter from './routes/CategoriaRouters.js';
+//import plataformaRouter from './routes/PlataformaRouters.js';
+//import desenvolvedorRouter from './routes/DesenvolvedorRoutes.js';
+//import avaliacoesRouter from './routes/AvaliacoesRouters.js';
+//import pedidosRouter from './routes/PedidosRouters.js';
+//import pedidoItensRouter from './routes/Pedido_ItensRouters.js';
+//import jogosPlataformaRouter from './routes/Jogos_PlataformaRouters.js';
 
-    await sequelize.sync({ alter: true }); // Sincroniza os modelos com o banco
-    console.log('✅ Tabelas sincronizadas com sucesso.');
 
-    // Exemplo de uso:
-    const novoUsuario = await Usuario.create({
-      nome: 'Talys Gustavo',
-      email: 'talys@email.com',
-      senha: 'senha123'
+const app = express();
+const port =process.env.PORT || 3000;
+
+app.use(bodyParser.json());
+
+app.get('/version', (req, res) =>{
+ res.json({status: 'ok', version: '1.0.0'});
+});
+
+//app.use('/usuario', usuarioRouter);
+//app.use('/categoria', categoriaRouter);
+//app.use('/plataforma', plataformaRouter);
+//app.use('/desenvolvedor', desenvolvedorRouter);
+//app.use('/avalicoes', avaliacoesRouter);
+//app.use('/pedido', pedidosRouter);
+//app.use('/pedidoItens', pedidoItensRouter);
+//app.use('/jogosPlataforma', jogosPlataformaRouter);
+
+sequelize.sync({ alter: true })
+  .then(() => {
+    console.log('Tudo certo chefe');
+    app.listen(port, () => {
+      console.log(`Server ok port ${port}`);
     });
-
-    const usuarios = await Usuario.findAll();
-    console.log(`Total de usuários: ${usuarios.length}`);
-  } catch (error) {
-    console.error('❌ Erro ao conectar ou sincronizar o banco de dados:', error);
-  } finally {
-    await sequelize.close();
-  }
-})();
+  })
+  .catch((error) => {
+    console.error('Deu ruim:', error);
+  });
