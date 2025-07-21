@@ -1,6 +1,7 @@
 import express from 'express';
 import { Jogo } from '../models/Index.js';
 import { expect } from 'chai';
+import Jogos from '../models/Jogos.js';
 
 const Jogosrouter = express.Router();
 
@@ -41,6 +42,21 @@ Jogosrouter.post('/', async (req, res) => {
     res.status(500).json({ error: 'Erro ao salvar a jogo', details: err.message });
   }
 });
+
+Jogosrouter.post('/batch', async (req, res) => {
+  try {
+    const result = await Jogo.bulkCreate(req.body);
+    //console.log('oioi');
+    // await usuario.validate();
+    //await usuario.save();
+
+    res.status(201).json(result);
+  } catch (err) {
+    res.status(500).json({ error: 'Erro ao salvar o usuário', details: err.message, errorFull: err });
+  }
+});
+
+
 
 //  Atualizar desenvolvedor por ID
 Jogosrouter.put('/:id', async (req, res) => {

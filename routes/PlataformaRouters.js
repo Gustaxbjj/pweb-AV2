@@ -41,6 +41,20 @@ PlataformaRouter.post('/', async (req, res) => {
   }
 });
 
+PlataformaRouter.post('/batch', async (req, res) => {
+  try {
+    const result = await Plataforma.bulkCreate(req.body);
+    //console.log('oioi');
+    // await usuario.validate();
+    //await usuario.save();
+
+    res.status(201).json(result);
+  } catch (err) {
+    res.status(500).json({ error: 'Erro ao salvar o usuário', details: err.message, errorFull: err });
+  }
+});
+
+
 //  Atualizar usuário por ID
 PlataformaRouter.put('/:id', async (req, res) => {
   const { id } = req.params;

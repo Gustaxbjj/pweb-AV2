@@ -31,15 +31,31 @@ Usuariorouter.get('/:id', async (req, res) => {
 // Criar novo usuário
 Usuariorouter.post('/', async (req, res) => {
   try {
-    const usuario = Usuario.build(req.body);
+    const usuario = await Usuario.build(req.body);
+    //console.log('oioi');
     await usuario.validate();
     await usuario.save();
 
     res.status(201).json(usuario);
   } catch (err) {
-    res.status(500).json({ error: 'Erro ao salvar o usuário', details: err.message });
+    res.status(500).json({ error: 'Erro ao salvar o usuário', details: err.message, errorFull: err });
   }
 });
+
+Usuariorouter.post('/batch', async (req, res) => {
+  try {
+    const result = await Usuario.bulkCreate(req.body);
+    //console.log('oioi');
+    // await usuario.validate();
+    //await usuario.save();
+
+    res.status(201).json(result);
+  } catch (err) {
+    res.status(500).json({ error: 'Erro ao salvar o usuário', details: err.message, errorFull: err });
+  }
+});
+
+
 
 //  Atualizar usuário por ID
 Usuariorouter.put('/:id', async (req, res) => {

@@ -42,6 +42,21 @@ Categoriarouter.post('/', async (req, res) => {
   }
 });
 
+
+Categoriarouter.post('/batch', async (req, res) => {
+  try {
+    const result = await Categoria.bulkCreate(req.body);
+    //console.log('oioi');
+    // await usuario.validate();
+    //await usuario.save();
+
+    res.status(201).json(result);
+  } catch (err) {
+    res.status(500).json({ error: 'Erro ao salvar o usuário', details: err.message, errorFull: err });
+  }
+});
+
+
 //  Atualizar categoria por ID
 Categoriarouter.put('/:id', async (req, res) => {
   const { id } = req.params;

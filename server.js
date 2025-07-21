@@ -10,8 +10,8 @@ import plataformaRouter from './routes/PlataformaRouters.js';
 import desenvolvedorRouter from './routes/DesenvolvedorRoutes.js';
 import avaliacoesRouter from './routes/AvaliacoesRouters.js';
 import pedidosRouter from './routes/PedidosRouters.js';
-//import pedidoItensRouter from './routes/Pedido_ItensRouters.js';
-//import jogosPlataformaRouter from './routes/Jogos_PlataformaRouters.js';
+import pedidoItensRouter from './routes/Pedido_ItensRouters.js';
+import jogosPlataformaRouter from './routes/Jogos_PlataformaRouters.js';
 
 
 const app = express();
@@ -30,8 +30,8 @@ app.use('/jogos', Jogosrouter )
 app.use('/desenvolvedores', desenvolvedorRouter);
 app.use('/avaliacoes', avaliacoesRouter);
 app.use('/pedidos', pedidosRouter);
-//app.use('/pedidoItens', pedidoItensRouter);
-//app.use('/jogosPlataformas', jogosPlataformaRouter);
+app.use('/pedidoItens', pedidoItensRouter);
+app.use('/jogosPlataformas', jogosPlataformaRouter);
 
 sequelize.sync({ alter: true })
   .then(() => {
