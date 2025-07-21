@@ -15,7 +15,7 @@ describe('Usuario model', () => {
       nome_usuario: 'Talys Test',
       email: 'talys@gmail.com',
       senha: '12345',
-      criado_em: new Date('2008-04-26')
+      criado_em: new Date()
     });
 
     expect(usuario).to.have.property('id');

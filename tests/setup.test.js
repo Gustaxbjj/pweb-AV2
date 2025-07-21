@@ -9,10 +9,13 @@
 
       it('Deve criar um usuário no banco PostgreSQL', async () => {
         const usuario = await db.Usuario.create({
-          nome: 'Talys',
+          nome: 'gustavo',
+          email: 'gtalys',
+          senha:'1234',
+          
         });
 
         expect(usuario).to.have.property('id');
-        expect(usuario.nome).to.equal('Talys');
+        expect(usuario.nome).to.equal('gustavo');
       });
     });
