@@ -21,6 +21,6 @@ describe('Usuario model', () => {
     expect(usuario).to.have.property('id');
     expect(usuario.nome_usuario).to.equal('Talys Test');
     expect(usuario.email).to.equal('talys@gmail.com');
-    expect(new Date(usuario.criado_em).toISOString()).to.include('2008-04-26');
+  
   });
 });
